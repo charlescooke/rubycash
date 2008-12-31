@@ -1,0 +1,6 @@
+---
+gems:
+- name: thoughtbot-shoulda
+  version: '>= 2.0.6'
+- name: geminstaller
+  version: '>= 0.4.5'

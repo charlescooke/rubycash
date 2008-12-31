@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+# Part of FrozenGems
+FROZEN_GEMS_SCRIPT_GEM = true
+
+require File.dirname(__FILE__) + '/../config/gems'
+args = ARGV.dup
+args.each_with_index do |arg, i|
+  unless arg =~ /^-/  # find subcommand
+    if arg =~ /^(install|update)$/
+      args.insert(i+1, '--no-rdoc', '--no-ri')
+      puts "Executing 'gem #{$1}' with --no-rdoc and --no-ri options"
+    end
+    break
+  end
+end
+
+system('gem', *args)
